@@ -1,0 +1,10 @@
+[package]
+name = "integral_square_root"
+version = "0.0.0"
+authors = ["Cruz Julian Bishop <cruzjbishop@gmail.com>"]
+description = "Reserved crate: ETA 2 hours"
+
+repository = "https://github.com/Techern/IntegralSquareRoot-RS"
+readme = "README.md"
+keywords = ["square", "root", "sqrt"]
+license = "MIT"
