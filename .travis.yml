@@ -1,41 +1,27 @@
 language: rust
-# necessary for `travis-cargo coveralls --no-sudo`
 addons:
   apt:
     packages:
       - libcurl4-openssl-dev
       - libelf-dev
       - libdw-dev
-
-# run builds for both all the trains
 rust:
   - nightly
   - beta
   - stable
-
-# load travis-cargo
 before_script:
   - |
-      pip install 'travis-cargo<0.2' --user &&
-      export PATH=$HOME/.local/bin:$PATH
-
-# the main build
+    pip install 'travis-cargo<0.2' --user &&
+    export PATH=$HOME/.local/bin:$PATH
 script:
   - |
-      travis-cargo build &&
-      travis-cargo test &&
-      travis-cargo bench &&
-      travis-cargo doc
+    travis-cargo build &&
+    travis-cargo test &&
+    travis-cargo bench &&
+    travis-cargo doc
 after_success:
-  # upload the documentation from the build with beta (automatically only actually
-  # runs on the master branch)
-  - travis-cargo --only beta doc-upload
-  # measure code coverage and upload to coveralls.io
-  #- travis-cargo coveralls --no-sudo
-
+  - travis-cargo --only stable doc-upload
 env:
   global:
-    # override the default `--features unstable` used for the nightly branch (optional)
-    - TRAVIS_CARGO_NIGHTLY_FEATURE="" #In the future, change this to 'nightly' and take advantage of nightly features
-    # encrypted github token for doc upload (see `GH_TOKEN` link above)
-    - secure: QltBWstxu7f3qCRjgp0KhfCBQefHFDcunV3S+p0qdk3/yJ3Q7k7Y5h/KH8fdMAgdXeYKsYlyb+5LFeoe3yZqDQZUBbLuqPTF0XgKFU2Cz9nqoEC83eK84wEdJzybYscebDB8LNZBB26GgTmXzYiIUMqAmkOfCIAaP7epsDawAY31WQgk8AcKfTml6fnb3WIDTgCCnVOO+oUnJkUPqNAUd0P8H7eNmJ1OQTQrIWFdCObkcQc1VZqAV6EtkKx1hCjf9nvNNKFiyurZbeZcmQoOCOUeISTvuaJo0akuPe0vj6DIfDuNaL98uEOfMUxjHJNCBcLt6AkOg/3vP30xvDdIw92lsmi/P3w1i8yCVqezTumgwSjoH2nOXWQYNR15Ihz+gmKTa/PXyjt6lclE+qoiNPxTzQtoFuSNl5MNPHeSOZjZMYvh84frp3VTSaqnsE4cPMHe0HPzmW3M53+wLuwH2a8zfi0D7rlEqx8QrlisJxXTmuydXTg8SWjSi8r5l1qukaxrSD9waM62YpQon0C6rQTxLCIF/aTd97IqfyFzQOMo/Zx2CiK6iez6tvflb8eNo5Y9wWUh2ojNUNJyULiyGLciS7ZMsvkv/jzF7Dgm0ZcUc0EXiBQhrf37eN8h/poy51KW15VIN7vKfJ+sFJsQf3qpYUAsq2Ixi64JdviH/pA=
+    - TRAVIS_CARGO_NIGHTLY_FEATURE=""
+    - secure: X7/4WHbwZxyFqsC4bC7hBpPJ5lyo/AUl3AjqSjyg1V/pDe9NRe2c71UOIL9Hmz9FPPag1aGqcknKaZFnecl+qPX8PvHkqNBGio15GJSDqmb6D/NqmLhhZAeHRnGpTfV4KIl0aL8qUDKiB8pZ3T3/A9OVSrKqKOTJcrUFnNkRLnpP+Fc8jwgOObnfdunitJFB+qGfborxH6A7SYAtHwY5IimaHhibDHyMO7hyWnDJmYMBjPA+HW50vF1SUROKHo8316am6RRbhvAcIZQvVAeZwdEWp08bCRDLXAZ2U+90qBdigo3DhsCKj3sAg4EKQ5gcE4osECfD/7hTT/aG2wp5FEVuRPaCKrwT0EnEX3K8Y7zyRzdJXZUMGnLh6HkTqCGJGEIpmyZfc/S1J19uIiIKFhKoYd58UelMnQB7IKFlrMm/A1fBlj70ggeJ9y0sl7b2+DK/fiEmGdL0kcDhAdL6VzbweAu9WTjBi97xhUo0jwM3V6TS1DKjc+7K1Gg6thVSvwmkNc01cSrUsPwwDY66tsqczr5/e9FUeuN/70XZN9ebTvJyxMDLICGSQ2SiKSECOTPdh0Q7LDserrDFO8nyjj1zraW42UHuYq+FN3efg/iWyKGi1iqOLyQxltlQ48KdV5pi8JO+yIfeM9fi/OTuD9KWachuVl6Ql8D8lCrptYM=
