@@ -1,8 +1,8 @@
 [package]
 name = "integral_square_root"
-version = "0.0.0"
+version = "0.0.1"
 authors = ["Cruz Julian Bishop <cruzjbishop@gmail.com>"]
-description = "Reserved crate: ETA 2 hours"
+description = "Square root (returned as f64) for integral types"
 
 repository = "https://github.com/Techern/IntegralSquareRoot-RS"
 readme = "README.md"
