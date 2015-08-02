@@ -1,9 +1,10 @@
 [package]
 name = "integral_square_root"
-version = "0.0.1"
+version = "1.0.0"
 authors = ["Cruz Julian Bishop <cruzjbishop@gmail.com>"]
 description = "Square root (returned as f64) for integral types"
 
+documentation = "http://techern.github.io/IntegralSquareRoot-RS/"
 repository = "https://github.com/Techern/IntegralSquareRoot-RS"
 readme = "README.md"
 keywords = ["square", "root", "sqrt"]
