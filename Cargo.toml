@@ -8,4 +8,4 @@ documentation = "http://techern.github.io/IntegralSquareRoot-RS/"
 repository = "https://github.com/Techern/IntegralSquareRoot-RS"
 readme = "README.md"
 keywords = ["square", "root", "sqrt"]
-license = "MIT"
+license = "MIT OR Apache-2.0"
