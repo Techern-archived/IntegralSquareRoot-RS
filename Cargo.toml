@@ -1,6 +1,6 @@
 [package]
 name = "integral_square_root"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Cruz Julian Bishop <cruzjbishop@gmail.com>"]
 description = "Square root (returned as f64) for integral types"
 
